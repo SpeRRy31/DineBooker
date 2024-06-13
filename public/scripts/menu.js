@@ -35,6 +35,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
     profileButton.addEventListener("click", function(event) {
         event.preventDefault();
-        loadContent("login.html");
+        console.log("profile btn");
+        checkSession();
     });
+
+    function checkSession() {
+        
+        console.log("chekses func");
+        fetch('/session')
+            .then(response => response.json())
+            .then(data => {
+                if (data.loggedIn) {
+                    console.log("profile html");
+                    loadContent('profile.html');
+                } else {
+                    console.log("login html");
+                    loadContent('login.html');
+                }
+            });
+    }
 });
