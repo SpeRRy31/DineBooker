@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineBooker register</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <header>
+        <h1>Мережа ресторанів DineBooker</h1>
+        <nav>
+          <a class="menu-item" href="index.html">Повернутись</a>
+        </nav>
+    </header>
+    
+    <main class="main-login">
+      <section class="login-container">
+            <h3>Реєстрація</h3>
+            <form id="registerForm" method="POST" action="/register">
+                <label for="name">Ім'я:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <label for="number">Номер телефону:</label>
+                <input type="text" id="number" name="number" required>
+                <br>
+                <button type="submit">Зареєструватися</button>
+            </form>
+        <p class="subtext">Вже маєте акаунт? Тоді <a class="linktext" href="login.html">увійдіть</a>.</p>
+      </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Резервування столиків DineBooker. Всі права захищені.</p>
+    </footer>
+    <script src="scripts/login.js"></script>
+</body>
+</html>
