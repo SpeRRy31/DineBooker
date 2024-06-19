@@ -3,6 +3,10 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #e8f9ff;
+    
+    background-image: url('img/bg.png');
+    background-repeat: repeat;
+    background-size: 512px 512px;
     color: #2f4f4f;
     margin: 0;
     padding: 0;
@@ -45,8 +49,12 @@ nav ul li {
 }
 
 main {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 120px); 
+    padding: 0 20px;
     font-size: 1.1em;
+    align-items: center;
 }
 
 
@@ -64,4 +72,12 @@ footer {
 footer p {
     margin: 0;
     font-size: 1em;
+}
+
+.main-section{
+    height: 100vh; 
+    padding: 10px;
+    width: 80%;
+    max-width: 1700px;
+    background-color: #fafafa;
 }

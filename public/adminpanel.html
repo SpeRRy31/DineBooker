@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineBooker Admin</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <header>
+        <h1>Резервування столиків DineBooker</h1>
+        <nav>
+            <ul>
+                <li><a class="menu-item" href="#home">Головна</a></li>
+                <li><a class="menu-item" href="#reserve">Резервування</a></li>
+                <li><a class="menu-item" href="contact.html">Контакти</a></li>
+                <li><a class="menu-item" href="#acount">Профіль</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="main">
+        <section class="main-section">
+            <h2>Управління столиками</h2>
+            <button id="openModalBtn">Додати столик</button>
+
+                        <!-- Модальне вікно -->
+                        <div id="addTableModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <h2>Додати новий столик</h2>
+                                <form id="addTableForm">
+                                    <label for="image">Зображення:</label>
+                                    <input type="file" id="image" name="image" required><br>
+
+                                    <label for="seats">Кількість місць:</label>
+                                    <select id="seats" name="seats" required>
+                                        <option value="2">2</option>
+                                        <option value="4">4</option>
+                                        <option value="6">6</option>
+                                        <option value="8">8</option>
+                                        <option value="10">10</option>
+                                        <option value="12">12</option>
+                                        <option value="14">14</option>
+                                        <option value="16">16</option>
+                                        <option value="20">20</option>
+                                    </select><br>
+
+                                    <label for="location">Розташування:</label>
+                                    <input type="text" id="hall" name="hall" placeholder="Основний зал або VIP зал"><br>
+                                    <input type="text" id="terrace" name="terrace" placeholder="Відкрита тераса або Закрита тераса"><br>
+                                    <input type="text" id="view" name="view" placeholder="Вид на вулицю, на парк або на річку"><br>
+
+                                    <label for="type">Тип:</label>
+                                    <select id="type" name="type" required>
+                                        <option value="Regular">Звичайний</option>
+                                        <option value="VIP">VIP</option>
+                                        <option value="Disabled">Для людей з інвалідністю</option>
+                                    </select><br>
+
+                                    <label for="minimumOrder">Мінімальна сума замовлення:</label>
+                                    <input type="number" id="minimumOrder" name="minimumOrder" min="0" required><br>
+
+                                    <button type="submit">Додати столик</button>
+                                </form>
+                            </div>
+                        </div>
+        </section>
+
+            
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Резервування столиків DineBooker. Всі права захищені.</p>
+    </footer>
+    <script src="scripts/adminpanel.js"></script>
+    <script src="scripts/menu.js"></script>
+</body>
+</html>

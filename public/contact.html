@@ -6,12 +6,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DineBooker</title>
+    <title>DineBooker contact</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Мережа ресторанів DineBooker</h1>
+        <h1>Резервування столиків DineBooker</h1>
         <nav>
             <ul>
                 <li><a class="menu-item" href="index.html">Головна</a></li>
@@ -23,43 +23,44 @@
     </header>
     
     <main id="main">
-        <div class="contact-info">
-    
-            <section class="map-info">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1293.6258922682116!2d25.641036499256597!3d49.57413933626302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47303162a6376101%3A0x1d2472ea48e4b93a!2z0LLRg9C70LjRhtGPINCb0LXRgdGPINCa0YPRgNCx0LDRgdCwLCA2LCDQotC10YDQvdC-0L_RltC70YwsINCi0LXRgNC90L7Qv9GW0LvRjNGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCA0NjAwMg!5e0!3m2!1suk!2sua!4v1718387592112!5m2!1suk!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </section>
-            <section class="us-info">
-                <h1>Контакти</h1>
-                <p>Якщо у вас виникли питання, будь ласка, зв'яжіться з нами:</p>
-                <ul>
-                    <li>Телефон: +380 50 500 5050</li>
-                    <li>Email: support@dinebooker.com</li>
-                    <li>Адреса: вул. Курбаса 6, Тернопіль, Україна</li>
-                </ul>
+        <div class="main-section">
+            <div class="contact-info">
+                <section class="map-info">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1293.6258922682116!2d25.641036499256597!3d49.57413933626302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47303162a6376101%3A0x1d2472ea48e4b93a!2z0LLRg9C70LjRhtGPINCb0LXRgdGPINCa0YPRgNCx0LDRgdCwLCA2LCDQotC10YDQvdC-0L_RltC70YwsINCi0LXRgNC90L7Qv9GW0LvRjNGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCA0NjAwMg!5e0!3m2!1suk!2sua!4v1718387592112!5m2!1suk!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </section>
+                <section class="us-info">
+                    <h1>Контакти</h1>
+                    <p>Якщо у вас виникли питання, будь ласка, зв'яжіться з нами:</p>
+                    <ul>
+                        <li>Телефон: +380 50 500 5050</li>
+                        <li>Email: support@dinebooker.com</li>
+                        <li>Адреса: вул. Курбаса 6, Тернопіль, Україна</li>
+                    </ul>
+                </section>
+            </div>
+            
+            <section class="contact-form">
+                <h3>Напишіть нам</h3>
+                <form id="contactForm">
+                    <section class="form-user-info">
+                        <section>
+                            <label for="name">Ім'я:</label>
+                            <input type="text" id="name" name="name" required>
+                        </section>
+                        <section>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </section>
+                    </section>
+                    <br>
+                    <label>Повідомлення:</label>
+                    <br>
+                    <textarea id="message" name="message" required></textarea>
+                    <br>
+                    <button type="submit">Відправити</button>
+                </form>
             </section>
         </div>
-        
-        <section class="contact-form">
-            <h3>Напишіть нам</h3>
-            <form id="contactForm">
-                <section class="form-user-info">
-                    <section>
-                        <label for="name">Ім'я:</label>
-                        <input type="text" id="name" name="name" required>
-                    </section>
-                    <section>
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </section>
-                </section>
-                <br>
-                <label>Повідомлення:</label>
-                <br>
-                <textarea id="message" name="message" required></textarea>
-                <br>
-                <button type="submit">Відправити</button>
-            </form>
-        </section>
     </main>
     
     <footer>

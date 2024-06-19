@@ -1,3 +1,59 @@
-<h2>Профіль користувача</h2>
-<p>Ласкаво просимо до вашого профілю!</p>
-<!-- Додатковий контент для профілю користувача -->
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineBooker profile</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Резервування столиків DineBooker</h1>
+        <nav>
+            <ul>
+                <li><a class="menu-item" href="index.html">Головна</a></li>
+                <li><a class="menu-item" href="index.html">Резервування</a></li>
+                <li><a class="menu-item" href="contact.html">Контакти</a></li>
+                <li id="adminPanelLink" style="display:none;"><a class="menu-item" href="adminpanel.html">Панель адміністратора</a></li>
+                <li><a href="#" id="logoutBtn" class="menu-item" >Вийти</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="main">
+        <div class="main-section">
+            <h2>Вітаємо, <span id="userName"></span>!</h2>
+            <p>Ваш email: <span id="userEmail"></span></p>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Резервування столиків DineBooker. Всі права захищені.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userName = localStorage.getItem('userName');
+            const userEmail = localStorage.getItem('userEmail');
+            const userIsAdmin = localStorage.getItem('userIsAdmin');
+
+            document.getElementById('userName').innerText = userName;
+            document.getElementById('userEmail').innerText = userEmail;
+
+            if (userIsAdmin === 'true') {
+                document.getElementById('adminPanelLink').style.display = 'block';
+            }
+
+            var logoutBtn = document.getElementById("logoutBtn"); 
+
+            logoutBtn.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    localStorage.setItem('sessionActive', "false");
+                    window.location.href = 'index.html';
+            });
+
+        });
+    </script>
+    <script src="scripts/menu.js"></script>
+</body>
+</html>
