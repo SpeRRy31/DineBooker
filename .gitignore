@@ -24,6 +24,10 @@ bower_components/
 # dotenv environment variable files
 .env
 
+#upload
+upload/
+
+
 # Logs
 logs
 *.log

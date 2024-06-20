@@ -12,8 +12,8 @@
         <h1>Резервування столиків DineBooker</h1>
         <nav>
             <ul>
-                <li><a class="menu-item" href="#home">Головна</a></li>
-                <li><a class="menu-item" href="#reserve">Резервування</a></li>
+                <li><a class="menu-item" href="contact.html">Головна</a></li>
+                <li><a class="menu-item" href="contact.html">Резервування</a></li>
                 <li><a class="menu-item" href="contact.html">Контакти</a></li>
                 <li><a class="menu-item" href="#acount">Профіль</a></li>
             </ul>
@@ -26,67 +26,108 @@
             <button id="openModalBtn">Додати столик</button>
             
             <div id="tablesGrid" class="grid-container"></div>
-                        <!-- Модальне вікно -->
-                        <div id="addTableModal" class="modal">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <h2>Додати новий столик</h2>
-                                <form id="addTableForm">
-                                    <label for="image">Зображення:</label>
-                                    <input type="file" id="image" name="image" required><br>
-
-                                    <label for="seats">Кількість місць:</label>
-                                    <select id="seats" name="seats" required>
-                                        <option value="2">2</option>
-                                        <option value="4">4</option>
-                                        <option value="6">6</option>
-                                        <option value="8">8</option>
-                                        <option value="10">10</option>
-                                        <option value="12">12</option>
-                                        <option value="14">14</option>
-                                        <option value="16">16</option>
-                                        <option value="20">20</option>
-                                    </select><br>
-
-                                    <label for="location">Розташування:</label>
-
-                                    <label for="hall">Зал:</label>
-                                    <select id="hall" name="hall" required>
-                                        <option value="Основний">Основний</option>
-                                        <option value="VIP">VIP</option>
-                                    </select><br>
-
-                                    <label for="terrace">Тераса:</label>
-                                    <select id="terrace" name="terrace" required>
-                                        <option value="Відкрита">Відкрита</option>
-                                        <option value="Закрита">Закрита</option>
-                                    </select><br>
-
-                                    <label for="view">Вид:</label>
-                                    <select id="view" name="view" required>
-                                        <option value="На вулицю">На вулицю</option>
-                                        <option value="На парк">На парк</option>
-                                        <option value="На річку">На річку</option>
-                                    </select><br>
-
-
-                                     <label for="type">Тип:</label>
-                                    <select id="type" name="type" required>
-                                        <option value="Звичайний">Звичайний</option>
-                                        <option value="VIP">VIP</option>
-                                        <option value="Для людей з інвалідністю">Для людей з інвалідністю</option>
-                                    </select><br>
-
-                                    <label for="minimumOrder">Мінімальна сума замовлення:</label>
-                                    <input type="number" id="minimumOrder" name="minimumOrder" min="0" required><br>
-
-                                    <button type="submit">Додати столик</button>
-                                </form>
-                            </div>
-                        </div>
-        </section>
-
             
+            <!-- Модальне вікно для додавання столика -->
+            <div id="addTableModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Додати новий столик</h2>
+                    <form id="addTableForm">
+                        <label for="image">Зображення:</label>
+                        <input type="file" id="image" name="image" required><br>
+
+                        <label for="seats">Кількість місць:</label>
+                        <select id="seats" name="seats" required>
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                            <option value="10">10</option>
+                            <option value="12">12</option>
+                            <option value="14">14</option>
+                            <option value="16">16</option>
+                            <option value="20">20</option>
+                        </select><br>
+
+                        <label for="hall">Зал:</label>
+                        <select id="hall" name="hall" required>
+                            <option value="Основний">Основний</option>
+                            <option value="VIP">VIP</option>
+                        </select><br>
+
+                        <label for="terrace">Тераса:</label>
+                        <select id="terrace" name="terrace" required>
+                            <option value="Відкрита">Відкрита</option>
+                            <option value="Закрита">Закрита</option>
+                        </select><br>
+
+                        <label for="view">Вид:</label>
+                        <select id="view" name="view" required>
+                            <option value="На вулицю">На вулицю</option>
+                            <option value="На парк">На парк</option>
+                            <option value="На річку">На річку</option>
+                        </select><br>
+
+                        <label for="type">Тип:</label>
+                        <select id="type" name="type" required>
+                            <option value="Звичайний">Звичайний</option>
+                            <option value="VIP">VIP</option>
+                            <option value="Для людей з інвалідністю">Для людей з інвалідністю</option>
+                        </select><br>
+
+                        <label for="minimumOrder">Мінімальна сума замовлення:</label>
+                        <input type="number" id="minimumOrder" name="minimumOrder" min="0" required><br>
+
+                        <button type="submit">Додати столик</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Модальне вікно редагування столика -->
+            <div id="editTableModal" class="modal">
+                <div class="modal-content">
+                    <span class="close close-edit">&times;</span>
+                    <h2>Редагувати столик</h2>
+                    <form id="editTableForm">
+                        <input type="hidden" id="editTableId" name="id">
+
+                        <label for="editSeats">Кількість місць:</label>
+                        <select id="editSeats" name="seats" required>
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                            <option value="10">10</option>
+                            <option value="12">12</option>
+                            <option value="14">14</option>
+                            <option value="16">16</option>
+                            <option value="20">20</option>
+                        </select><br>
+
+                        <label for="editHall">Зал:</label>
+                        <input type="text" id="editHall" name="hall" required><br>
+
+                        <label for="editTerrace">Тераса:</label>
+                        <input type="text" id="editTerrace" name="terrace"><br>
+
+                        <label for="editView">Вид:</label>
+                        <input type="text" id="editView" name="view"><br>
+
+                        <label for="editType">Тип:</label>
+                        <select id="editType" name="type" required>
+                            <option value="Звичайний">Звичайний</option>
+                            <option value="VIP">VIP</option>
+                            <option value="Для людей з інвалідністю">Для людей з інвалідністю</option>
+                        </select><br>
+
+                        <label for="editMinimumOrder">Мінімальна сума замовлення:</label>
+                        <input type="number" id="editMinimumOrder" name="minimumOrder" required><br>
+                        
+                        <button id="deleteTableBtn">Видалити</button>
+                        <button type="submit">Зберегти</button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
     
     <footer>

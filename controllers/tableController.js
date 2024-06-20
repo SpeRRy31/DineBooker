@@ -90,3 +90,21 @@ exports.deleteTable = async (req, res) => {
         res.status(500).json({ error: 'Помилка при видаленні столика' });
     }
 };
+
+// Отримання столика за ідентифікатором
+exports.getTableById = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const table = await Table.findById(id);
+
+        if (!table) {
+            return res.status(404).json({ error: 'Столик не знайдено' });
+        }
+
+        res.status(200).json(table);
+    } catch (error) {
+        res.status(500).json({ error: 'Помилка при отриманні столика' });
+    }
+};
+
