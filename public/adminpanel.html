@@ -22,7 +22,7 @@
     
     <main id="main">
         <section class="main-section">
-            <h2>Управління столиками</h2>
+            <h2>Керування столиками</h2>
             <button id="openModalBtn">Додати столик</button>
 
                         <!-- Модальне вікно -->
@@ -48,15 +48,32 @@
                                     </select><br>
 
                                     <label for="location">Розташування:</label>
-                                    <input type="text" id="hall" name="hall" placeholder="Основний зал або VIP зал"><br>
-                                    <input type="text" id="terrace" name="terrace" placeholder="Відкрита тераса або Закрита тераса"><br>
-                                    <input type="text" id="view" name="view" placeholder="Вид на вулицю, на парк або на річку"><br>
 
-                                    <label for="type">Тип:</label>
-                                    <select id="type" name="type" required>
-                                        <option value="Regular">Звичайний</option>
+                                    <label for="hall">Зал:</label>
+                                    <select id="hall" name="hall" required>
+                                        <option value="Основний">Основний</option>
                                         <option value="VIP">VIP</option>
-                                        <option value="Disabled">Для людей з інвалідністю</option>
+                                    </select><br>
+
+                                    <label for="terrace">Тераса:</label>
+                                    <select id="terrace" name="terrace" required>
+                                        <option value="Відкрита">Відкрита</option>
+                                        <option value="Закрита">Закрита</option>
+                                    </select><br>
+
+                                    <label for="view">Вид:</label>
+                                    <select id="view" name="view" required>
+                                        <option value="На вулицю">На вулицю</option>
+                                        <option value="На парк">На парк</option>
+                                        <option value="На річку">На річку</option>
+                                    </select><br>
+
+
+                                     <label for="type">Тип:</label>
+                                    <select id="type" name="type" required>
+                                        <option value="Звичайний">Звичайний</option>
+                                        <option value="VIP">VIP</option>
+                                        <option value="Для людей з інвалідністю">Для людей з інвалідністю</option>
                                     </select><br>
 
                                     <label for="minimumOrder">Мінімальна сума замовлення:</label>
