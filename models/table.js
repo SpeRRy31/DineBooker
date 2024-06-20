@@ -40,6 +40,10 @@ const TableSchema = new mongoose.Schema({
     minimumOrder: {
         type: Number,
         default: 0
+    },
+    image: {
+        type: String,
+        default: "#"
     }
 });
 

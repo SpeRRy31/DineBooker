@@ -75,7 +75,7 @@ footer p {
 }
 
 .main-section{
-    height: 100vh; 
+    min-height: 100vh; 
     padding: 10px;
     width: 80%;
     max-width: 1700px;

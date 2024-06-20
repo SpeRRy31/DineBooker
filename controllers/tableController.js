@@ -10,10 +10,11 @@ exports.getAllTables = async (req, res) => {
     }
 };
 
+
 // Створення нового столика
 exports.createTable = async (req, res) => {
     const { seats, hall, terrace, view, type, minimumOrder } = req.body;
-    const image = req.file.path;
+    const image = req.file ? req.file.path.replace(/^.*[\\\/]/, 'uploads/') : '';
 
     try {
         const newTable = new Table({
