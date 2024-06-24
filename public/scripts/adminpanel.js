@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalEdit = document.getElementById('editTableModal');
     const spanEdit = document.getElementsByClassName('close-edit')[0];
 
+
+    const tablesGrid = document.getElementById('tablesGrid');
+    document.getElementById('applyFilters').addEventListener('click', fetchTables);
+
     // Відкриття модального вікна при натисканні кнопки
     btn.onclick = function() {
         modal.style.display = 'block';
@@ -110,10 +114,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Отримання всіх столиків при завантаженні сторінки
     async function fetchTables() {
+        const sort = document.getElementById('sortOptions').value;
+        const filterSeats = document.getElementById('filterSeats').value;
+        const filterType = document.getElementById('filterType').value;
+        const filterHall = document.getElementById('filterHall').value;
+        const filterTerrace = document.getElementById('filterTerrace').value;
+        const filterView = document.getElementById('filterView').value;
+        const filterAvailability = document.getElementById('filterAvailability').value;
+
+        const filters = {};
+        if (filterSeats) {
+            filters.seats = filterSeats;
+        }
+        if (filterType) {
+            filters.type = filterType;
+        }
+        if (filterHall) {
+            filters.location = filters.location || {};
+            filters.location.hall = filterHall;
+        }
+        if (filterTerrace) {
+            filters.location = filters.location || {};
+            filters.location.terrace = filterTerrace;
+        }
+        if (filterView) {
+            filters.location = filters.location || {};
+            filters.location.view = filterView;
+        }
+        if (filterAvailability) {
+            filters.availability = filterAvailability;
+        }
+
+        const queryParams = new URLSearchParams();
+        if (sort) {
+            queryParams.append('sort', sort);
+        }
+        if (Object.keys(filters).length > 0) {
+            queryParams.append('filter', JSON.stringify(filters));
+        }
+
+        const url = `/api/tables?${queryParams.toString()}`;
+
         try {
-            const response = await fetch('/api/tables');
+            const response = await fetch(url);
             const tables = await response.json();
-            const tablesGrid = document.getElementById('tablesGrid');
             tablesGrid.innerHTML = tables.map(table => `
                 <div class="table-card">
                     <img src="${table.image}" alt="Table Image">

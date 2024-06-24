@@ -23,6 +23,66 @@
     <main id="main">
         <section class="main-section">
             <h2>Керування столиками</h2>
+            <div class="filter-section">
+                <select id="sortOptions">
+                    <option value="">-- Сортувати за --</option>
+                    <option value="seats">Кількість місць</option>
+                    <option value="type">Тип</option>
+                    <option value="location.hall">Зал</option>
+                    <option value="location.terrace">Тераса</option>
+                    <option value="location.view">Вид</option>
+                    <option value="minimumOrder">Мінімальна сума замовлення</option>
+                </select>
+        
+                <select id="filterSeats">
+                    <option value="">-- Фільтр за кількістю місць --</option>
+                    <option value="2">2 місця</option>
+                    <option value="4">4 місця</option>
+                    <option value="6">6 місць</option>
+                    <option value="8">8 місць</option>
+                    <option value="10">10 місць</option>
+                    <option value="12">12 місць</option>
+                    <option value="14">14 місць</option>
+                    <option value="16">16 місць</option>
+                    <option value="20">20 місць</option>
+                </select>
+        
+                <select id="filterType">
+                    <option value="">-- Фільтр за типом --</option>
+                    <option value="Regular">Звичайний</option>
+                    <option value="VIP">VIP</option>
+                    <option value="Disability">Для людей з інвалідністю</option>
+                </select>
+        
+                <select id="filterHall">
+                    <option value="">-- Фільтр за залом --</option>
+                    <option value="Main">Основний</option>
+                    <option value="VIP">VIP</option>
+                </select>
+        
+                <select id="filterTerrace">
+                    <option value="">-- Фільтр за терасою --</option>
+                    <option value="Open">Відкрита</option>
+                    <option value="Closed">Закрита</option>
+                </select>
+        
+                <select id="filterView">
+                    <option value="">-- Фільтр за видом --</option>
+                    <option value="Street">На вулицю</option>
+                    <option value="Park">На парк</option>
+                    <option value="River">На річку</option>
+                </select>
+        
+                <select id="filterAvailability">
+                    <option value="">-- Фільтр за доступністю --</option>
+                    <option value="Free">Вільний</option>
+                    <option value="Reserved">Зарезервований</option>
+                </select>
+        
+                <button id="applyFilters" class="filter-btn">Застосувати фільтри</button>
+            </div>
+        
+            
             <button id="openModalBtn">Додати столик</button>
             
             <div id="tablesGrid" class="grid-container"></div>
