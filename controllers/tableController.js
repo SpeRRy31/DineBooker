@@ -3,43 +3,18 @@ const Table = require('../models/table');
 // Отримання всіх столиків
 exports.getAllTables = async (req, res) => {
     try {
-        const { sort, filter } = req.query;
+        const { page = 1, limit = 6, sort, filter } = req.query;
+        const filters = filter ? JSON.parse(filter) : {};
 
-        let query = Table.find();
-
-        // Фільтрація
-        if (filter) {
-            const filters = JSON.parse(filter);
-            if (filters.seats) {
-                query = query.where('seats').equals(filters.seats);
-            }
-            if (filters.type) {
-                query = query.where('type').equals(filters.type);
-            }
-            if (filters.location) {
-                if (filters.location.hall) {
-                    query = query.where('location.hall').equals(filters.location.hall);
-                }
-                if (filters.location.terrace) {
-                    query = query.where('location.terrace').equals(filters.location.terrace);
-                }
-                if (filters.location.view) {
-                    query = query.where('location.view').equals(filters.location.view);
-                }
-            }
-            if (filters.minimumOrder) {
-                query = query.where('minimumOrder').equals(filters.minimumOrder);
-            }
-        }
-
-        // Сортування
+        const query = Table.find(filters);
         if (sort) {
-            const sortFields = sort.split(',').join(' ');
-            query = query.sort(sortFields);
+            query.sort(sort);
         }
 
-        const tables = await query.exec();
-        res.status(200).json(tables);
+        const totalItems = await Table.countDocuments(filters);
+        const tables = await query.skip((page - 1) * limit).limit(Number(limit));
+
+        res.status(200).json({ tables, totalItems });
     } catch (error) {
         res.status(500).json({ error: 'Помилка при отриманні столиків' });
     }

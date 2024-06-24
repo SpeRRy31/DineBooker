@@ -167,7 +167,7 @@ button:hover {
     color: black;
 }
 
-select{
+.filter-section select{
     width: 12%;
     padding: 10px;
     margin-bottom: 15px;
@@ -179,4 +179,24 @@ select{
 .filter-section{
     display: flex;
     gap: 10px;
+}
+
+.pagination{
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pagination button{
+    width: 60px;
+    text-align: center;
+}
+
+.pagination span{
+    text-align: center;
+    font-weight: 500;
+    font-size: 22px;
+    padding: 0 20px 16px;
 }

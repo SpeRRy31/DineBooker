@@ -6,9 +6,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalEdit = document.getElementById('editTableModal');
     const spanEdit = document.getElementsByClassName('close-edit')[0];
 
-
     const tablesGrid = document.getElementById('tablesGrid');
     document.getElementById('applyFilters').addEventListener('click', fetchTables);
+
+    const prevPageBtn = document.getElementById('prevPage');
+    const nextPageBtn = document.getElementById('nextPage');
+    const currentPageSpan = document.getElementById('currentPage');
+    let currentPage = 1;
+    const itemsPerPage = 6;
+
+    prevPageBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            fetchTables();
+        }
+    });
+
+    nextPageBtn.addEventListener('click', () => {
+        currentPage++;
+        fetchTables();
+    });
 
     // Відкриття модального вікна при натисканні кнопки
     btn.onclick = function() {
@@ -152,12 +169,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (Object.keys(filters).length > 0) {
             queryParams.append('filter', JSON.stringify(filters));
         }
+        queryParams.append('page', currentPage);
+        queryParams.append('limit', itemsPerPage);
 
         const url = `/api/tables?${queryParams.toString()}`;
 
         try {
             const response = await fetch(url);
-            const tables = await response.json();
+            const data = await response.json();
+            const tables = data.tables;
+            const totalItems = data.totalItems;
+
             tablesGrid.innerHTML = tables.map(table => `
                 <div class="table-card">
                     <img src="${table.image}" alt="Table Image">
@@ -177,6 +199,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             `).join('');
+
+            currentPageSpan.textContent = currentPage;
+            prevPageBtn.disabled = currentPage === 1;
+            nextPageBtn.disabled = currentPage * itemsPerPage >= totalItems;
         } catch (error) {
             console.error('Error fetching tables:', error);
         }
