@@ -31,23 +31,45 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
     
         const formData = new FormData(event.target);
+        const userEmail = localStorage.getItem("userEmail");
     
         try {
-            const response = await fetch('/api/reservations/create', {
+            const userIDResponse = await fetch(`/api/users/getUserIdByEmail/${userEmail}`);
+            const userID = await userIDResponse.json();
+            const reservationData = {
+                userId: userID.userId, 
+                tableId: formData.get('id'),
+                name: formData.get('name'),
+                phone: formData.get('phone')
+            };
+    
+            console.log(reservationData);
+    
+            const response = await fetch('/api/reserves/set_reserve', {
                 method: 'POST',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(reservationData)
             });
     
             if (response.ok) {
                 alert('Table reserved successfully!');
-                modal.style.display = 'none';
+                location.reload();
             } else {
-                alert('Failed to reserve table.');
+                const errorData = await response.json();
+                alert(`Failed to reserve table: ${errorData.message}`);
             }
         } catch (error) {
             console.error('Error reserving table:', error);
         }
     });
+    
+    function openReserveModal(tableId) {
+        const reserveTableIdInput = document.getElementById('reserveTableId');
+        reserveTableIdInput.value = tableId;
+        modal.style.display = 'block';
+    }
 
     // Отримання всіх столиків при завантаженні сторінки
     async function fetchTables(page) {

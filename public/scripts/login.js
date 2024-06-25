@@ -27,7 +27,6 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
                 const profileData = await profileResponse.json();
                 console.log(profileData);
         
-                // Збереження ім'я та email у localStorage
                 localStorage.setItem('userName', profileData.name);
                 localStorage.setItem('userEmail', profileData.email);
                 localStorage.setItem('userIsAdmin', profileData.isAdmin);

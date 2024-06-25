@@ -4,11 +4,8 @@ const usersController = require('../controllers/userController');
 
 // Register route
 router.post('/register', usersController.register);
-
-// Login route
 router.post('/login', usersController.login);
-
-
 router.get('/profile', usersController.getProfile);
+router.get('/getUserIdByEmail/:email', usersController.getUserIdByEmail);
 
 module.exports = router;

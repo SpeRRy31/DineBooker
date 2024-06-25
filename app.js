@@ -8,6 +8,7 @@ const path = require('path');
 const usersRoutes = require('./routes/userRoutes');
 const tablesRoutes = require('./routes/tableRoutes');
 const mesRoutes = require('./routes/mesRoutes');
+const reservationRoutes = require('./routes/reserveRoutes');
 
 const app = express();
 app.use(express.json());
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/users', usersRoutes);
 app.use('/api/tables', tablesRoutes);
 app.use('/api/mes', mesRoutes);
+app.use('/api/reserves', reservationRoutes);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
