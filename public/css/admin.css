@@ -156,13 +156,13 @@ button:hover {
     padding: 0 10px;
 }
 
-.edit-btn{
+.edit-btn, .reserve-btn{
     width: 140px;
     margin: 5px 15px;
     border: solid 2px white;
     background-color: #0000008c;
 }
-.edit-btn:hover{
+.edit-btn:hover, .reserve-btn:hover{
     background-color: #ffffff;
     color: black;
 }
