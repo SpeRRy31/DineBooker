@@ -104,5 +104,9 @@ footer p {
 
 #about, #features, #testimonials, #contact {
     padding: 2rem 1rem;
-    text-align: center;
+}
+
+
+.image{
+    width: 100%;
 }
