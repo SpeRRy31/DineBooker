@@ -79,7 +79,7 @@ exports.getProfile = async (req, res) => {
         const user = req.session.user;
 
         // Повернення додаткових даних користувача
-        res.json({ name: user.name, email: user.email, isAdmin: user.isAdmin});
+        res.json({ name: user.name, email: user.email, isAdmin: user.isAdmin, phone: user.phoneNumber});
     } catch (error) {
         console.error('Error getting profile:', error);
         res.status(500).send('Server error');

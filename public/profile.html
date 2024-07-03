@@ -46,6 +46,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const userName = localStorage.getItem('userName');
             const userEmail = localStorage.getItem('userEmail');
+            const userPhone = localStorage.getItem('userPhone');
             const userIsAdmin = localStorage.getItem('userIsAdmin');
 
             document.getElementById('userName').innerText = userName;
@@ -62,10 +63,8 @@
                     localStorage.setItem('sessionActive', "false");
                     window.location.href = 'index.html';
             });
-
         });
     </script>
-
     <script src="scripts/profile.js"></script>
     <script src="scripts/menu.js"></script>
 </body>

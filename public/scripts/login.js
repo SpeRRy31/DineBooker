@@ -28,6 +28,7 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
                 console.log(profileData);
         
                 localStorage.setItem('userName', profileData.name);
+                localStorage.setItem('userPhone', profileData.phone);
                 localStorage.setItem('userEmail', profileData.email);
                 localStorage.setItem('userIsAdmin', profileData.isAdmin);
                 
